@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+<h2>Flights Table</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Airline</th>
+      <th>Airport</th>
+      <th>Flight Number</th>
+      <th>DeprtueDate and Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% flights.forEach(function(f) { %>
+      <tr>
+        <td><%= f.airline %></td>
+        <td><%= f.airport %></td>
+        <td><%= f.flightNum %></td>
+        <td <% if (new Date(f.departs) < new Date()) { %> style="color:red;" <% } %>> <%= f.departs %></td>
+
+
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>
